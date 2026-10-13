@@ -9,9 +9,11 @@ int main() {
     std::cin >> a >> b >> c;
 
     if (isTriangleExists(a, b, c)) {
+        std::string angleType = getAngleType(a, b, c);
         std::string sideType = getSideType(a, b, c);
         
         std::cout << "Треугольник существует, он " << angleType;
+        
         if (sideType != "разносторонний") {
              std::cout << " (и " << sideType << ")";
         }

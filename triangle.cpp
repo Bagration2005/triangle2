@@ -1,5 +1,19 @@
 #include "triangle.h"
+#include <algorithm> 
 
+std::string getAngleType(double a, double b, double c) {
+    double max_side = std::max({a, b, c});
+    double sum_sq = 0;
+    if (max_side == a) sum_sq = b*b + c*c;
+    else if (max_side == b) sum_sq = a*a + c*c;
+    else sum_sq = a*a + b*b;
+
+    double max_sq = max_side * max_side;
+
+    if (max_sq == sum_sq) return "прямоугольный";
+    if (max_sq < sum_sq) return "остроугольный";
+    return "тупоугольный";
+}
 bool isTriangleExists(double a, double b, double c) {
     return (a + b > c) && (a + c > b) && (b + c > a);
 }
