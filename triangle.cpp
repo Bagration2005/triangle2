@@ -10,3 +10,8 @@ double getArea(double a, double b, double c) {
     double p = getPerimeter(a, b, c) / 2.0;
     return std::sqrt(p * (p - a) * (p - b) * (p - c));
 }
+std::string getSideType(double a, double b, double c) {
+    if (a == b && b == c) return "равносторонний";
+    if (a == b || b == c || a == c) return "равнобедренный";
+    return "разносторонний";
+}
